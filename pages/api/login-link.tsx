@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import querystring from 'querystring';
 import Cors from 'cors';
 import dotenv from 'dotenv';
+import { serialize } from 'cookie';
 
 dotenv.config();
 
@@ -46,15 +47,11 @@ export default async function handler(
 
     // Make the Axios request
     try {
-        console.log(redirectUrl);
+        const ac_token_cookie = serialize("test1", "test1 value", { httpOnly: false, path: "/", maxAge: 86400});
+        const re_token_cookie = serialize("test2", "test2 value", { httpOnly: false, path: "/", maxAge: 86400});
+        res.setHeader("Set-Cookie", [ac_token_cookie, re_token_cookie]);  
         res.json(redirectUrl);
     } catch (error) {
         res.status(500).json({ error: 'An error occurred' });
     }
-}
-
-function generateRandomString(length: number) {
-    // Generate a random string
-    // You can implement your own logic to generate the random string
-    return 'randomString';
 }
