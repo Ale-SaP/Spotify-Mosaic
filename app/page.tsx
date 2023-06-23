@@ -1,4 +1,4 @@
-import WelcomeText from "../components/homepage/unlogged/welcomeText";
+import WelcomeText from "./home/welcomeText";
 
 export default function Home() {
     return (
