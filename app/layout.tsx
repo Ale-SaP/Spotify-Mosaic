@@ -11,7 +11,15 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                {children}
+                <div className="flex">
+                    <div className="w-2/6 w-full mx-auto">
+                    </div>
+                    <div className="w-4/6 w-full mx-auto">
+                        <div className='justify-items-end justify-end'>
+                            {children}
+                        </div>
+                    </div>
+                </div>
             </body>
         </html>
     )

@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { SpotifyData } from './playlist_interface';
+import { SpotifyPlaylistData } from './playlist_interface';
 
-export default async function self_playlists(token: string): Promise<SpotifyData | null> {
+export default async function self_playlists(token: string): Promise<SpotifyPlaylistData | null> {
   const url = 'https://api.spotify.com/v1/me/playlists';
   const headers = {
     Authorization: `Bearer ${token}`,

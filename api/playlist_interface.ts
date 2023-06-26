@@ -1,14 +1,14 @@
-export interface SpotifyData {
+export interface SpotifyPlaylistData {
     href: string;
     limit: number;
     next: string;
     offset: number;
     previous: string;
     total: number;
-    items: SpotifyItem[];
+    items: SpotifyPlaylist[];
   }
   
-export interface SpotifyItem {
+export interface SpotifyPlaylist {
     collaborative: boolean;
     description: string;
     external_urls: {

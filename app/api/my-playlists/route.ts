@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import self_playlists from "../../../api/self_playlists";
-import { SpotifyData } from "../../../api/playlist_interface";
 
 export async function POST(request: NextRequest, response: NextResponse) {
     const codeSent = await request.json()

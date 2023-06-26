@@ -2,27 +2,28 @@
 
 import axios from "axios";
 import { cookies } from "next/headers";
-import { SpotifyData } from "../../api/playlist_interface";
+import { SpotifyPlaylistData } from "../../api/playlist_interface";
 import Image from "next/image";
+import PlaylistBox from "./playlistBox";
 
 export default async function Profile() {
-    let data: SpotifyData;
+    let data: SpotifyPlaylistData;
     const res = await axios.post(`http://localhost:3000/api/my-playlists`, { "access_token": cookies().get("access_token") });
 
     const deserializedData = JSON.parse(res.data.serializedData);
+    //console.log(deserializedData.items[0]);
 
     if (deserializedData != null) { }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content text-center">
-                    <div className="max-w-md">
-                        <h1 className="text-5xl font-bold">Hello there</h1>
-                        <p className="py-6">You are logged in!</p>
-                        {deserializedData.items.map((playlist) => (
-                            <div>
-                                <p key={playlist.id}>{playlist.name}</p>
-                            </div>))}
+                    <div>
+                        <div className="flex flex-wrap flex-none justify-center">
+                            {deserializedData.items.map((playlist) => (
+                                <PlaylistBox key={playlist.id} playlist={playlist} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
