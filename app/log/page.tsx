@@ -3,15 +3,18 @@
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 
 export default function Log() {
     const code = useSearchParams()?.get('code');
+    const router = useRouter();
     const fetchData = async () => {
         if (code) {
             console.log('Received code:', code);
             try {
-                const response = await axios.post('/api/login-handler/', { "code": code });
+                const response = await axios.post('/api/login/', { "code": code });
                 console.log('Response:', response);
+                router.push("/profile")
             } catch (error) {
                 console.error('An error occurred:', error);
             }

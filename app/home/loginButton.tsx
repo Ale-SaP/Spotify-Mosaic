@@ -1,25 +1,21 @@
 "use client"
 
 import { useRouter } from 'next/navigation'
-
 import { useState } from "react";
-import axios from "axios";
 
-export default function LoginButton() {
+interface LoginButtonProps {
+  link: string;
+}
+
+export default function LoginButton({ link }: LoginButtonProps) {
+
   const router = useRouter()
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
 
   const handleLogin = async () => {
     try {
-      setIsLoading(true);
-      // Make the Axios request to /api/login-request
-      const response = await axios.get('/api/login-link');
-      // Process the response if needed
-      setIsLoading(false);
-      // Redirect to the desired link
-      router.push(response.data);
+      router.push(link);
     } catch (error) {
-      setIsLoading(false);
       console.error('An error occurred:', error);
     }
   };
