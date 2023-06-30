@@ -1,9 +1,16 @@
 'use client'
 import { useRouter } from "next/navigation"
 
-export default function PlaylistButton({id}) {
+export default function PlaylistButton({ id, component }) {
     const router = useRouter()
-    return <button className="btn btn-sm btn-ghost"
-        onClick={() => { router.push(`/profile/playlist/${id}`) }}>Open
-    </button>
+    return (
+        <button
+            onClick={() => {
+                window.open(`/profile/playlist/${id}`, '_blank');
+            }}
+        >
+            {component}
+        </button>
+    );
+
 }

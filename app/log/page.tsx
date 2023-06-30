@@ -13,7 +13,6 @@ export default function Log() {
             console.log('Received code:', code);
             try {
                 const response = await axios.post('/api/login/', { "code": code });
-                console.log('Response:', response);
                 router.push("/profile")
             } catch (error) {
                 console.error('An error occurred:', error);

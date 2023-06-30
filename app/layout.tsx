@@ -1,3 +1,4 @@
+import LeftMenu from './leftMenu';
 import '../styles/globals.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -11,10 +12,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <div className="flex">
-                    <div className="w-2/6 w-full mx-auto">
+                <div className="flex bg-zinc-900">
+                    <div className="w-1/4 mx-auto h-screen overflow-auto">
+                        <LeftMenu/>
                     </div>
-                    <div className="w-4/6 w-full mx-auto">
+                    <div className="w-3/4 mx-auto h-screen overflow-auto">
                         <div className='justify-items-end justify-end'>
                             {children}
                         </div>

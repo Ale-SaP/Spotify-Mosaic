@@ -3,8 +3,7 @@
 import axios from "axios";
 import { cookies } from "next/headers";
 import { SpotifyPlaylistData } from "../../api/playlist_interface";
-import Image from "next/image";
-import PlaylistBox from "./playlistBox";
+import PlaylistsContainer from "./playlistsContainer";
 
 export default async function Profile() {
     let data: SpotifyPlaylistData;
@@ -13,16 +12,14 @@ export default async function Profile() {
     const deserializedData = JSON.parse(res.data.serializedData);
     //console.log(deserializedData.items[0]);
 
-    if (deserializedData != null) { }
+    if (deserializedData != null) {}
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero bg-zinc-900">
                 <div className="hero-content text-center">
                     <div>
                         <div className="flex flex-wrap flex-none justify-center">
-                            {deserializedData.items.map((playlist) => (
-                                <PlaylistBox key={playlist.id} playlist={playlist} />
-                            ))}
+                            <PlaylistsContainer playlists={deserializedData.items} />
                         </div>
                     </div>
                 </div>
