@@ -1,5 +1,5 @@
 import LoginButton from "./loginButton";
-import login_link from "../../api/login_link"
+import login_link from "../../spotify/login_link"
 
 export default function WelcomeText() {
     const loginLink = login_link();

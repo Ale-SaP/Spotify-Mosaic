@@ -1,15 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import get_playlist from "../../../api/get_playlist";
+import self_playlists from "../../../spotify/self_playlists";
 
 export async function POST(request: NextRequest, response: NextResponse) {
     const codeSent = await request.json()
     const a_token = codeSent.access_token.value
-    const playlist_id = codeSent.playlist_id
-    if (!a_token || !playlist_id ) {
+    if (!a_token) {
         return NextResponse.json("aaaa", { status: 500 })
     }
-    const data = await get_playlist(a_token, playlist_id)
-    const serializedData = JSON.stringify(data);
+    const data = await self_playlists(a_token)
+    const serializedData = JSON.stringify(data);;
 
     return NextResponse.json({ serializedData })
 

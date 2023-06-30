@@ -2,8 +2,8 @@
 
 import axios from "axios";
 import { cookies } from "next/headers";
-import { SpotifyPlaylistData } from "../../api/playlist_interface";
-import PlaylistsContainer from "./playlistsContainer";
+import { SpotifyPlaylistData } from "../../spotify/playlist_interface";
+import PlaylistsContainer from "../../components/profile/playlistsContainer";
 
 export default async function Profile() {
     let data: SpotifyPlaylistData;

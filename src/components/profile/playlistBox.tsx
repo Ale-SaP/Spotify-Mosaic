@@ -1,5 +1,5 @@
 'use server'
-import { SpotifyPlaylist } from "../../api/playlist_interface";
+import { SpotifyPlaylist } from "../../spotify/playlist_interface";
 import Image from "next/image";
 import PlaylistButton from "./playlistButton";
 import PlaylistText from "./playlistText";

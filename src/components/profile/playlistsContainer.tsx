@@ -1,6 +1,6 @@
 'use server'
 
-import { SpotifyPlaylist } from "../../api/playlist_interface";
+import { SpotifyPlaylist } from "../../spotify/playlist_interface";
 import PlaylistBox from "./playlistBox";
 
 type containerProps = {

@@ -2,8 +2,8 @@
 
 import { cookies } from "next/headers";
 import axios from "axios";
-import { SpotifyPlaylist, SpotifyPlaylistData } from "../../../../api/playlist_interface";
-import PlaylistsContainer from "../../playlistsContainer";
+import { SpotifyPlaylist, SpotifyPlaylistData } from "../../../../spotify/playlist_interface";
+import PlaylistsContainer from "../../../../components/profile/playlistsContainer";
 import Image from "next/image";
 
 export default async function Page({ params }: { params: { playlist_id: string } })  {

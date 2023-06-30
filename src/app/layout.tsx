@@ -1,6 +1,5 @@
-import LeftMenu from './leftMenu';
-import '../styles/globals.css';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import LeftMenu from '../components/general-use/leftMenu';
+import './globals.css';
 
 export default function RootLayout({
     // Layouts must accept a children prop.

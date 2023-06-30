@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import authorize_code from '../../../api/authorize_code'
+import authorize_code from '../../../spotify/authorize_code'
 import { cookies } from 'next/headers'
 
 export async function POST(request: NextRequest) {
