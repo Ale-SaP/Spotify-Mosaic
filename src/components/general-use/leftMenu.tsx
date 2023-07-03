@@ -5,10 +5,6 @@ import SelectorButton from "./selectorButtons"
 export default function LeftMenu() {
     return (
         <div className="sticky pt-8">
-            <div className="flex flex-col justify-self-start">
-                <button className="btn"></button>
-                <button className="btn">Button</button>
-            </div>
             <div className="flex flex-col items-center justify-center bg-zinc-950 rounded">
                 <div className="">
                     <div className="join flex pt-4">

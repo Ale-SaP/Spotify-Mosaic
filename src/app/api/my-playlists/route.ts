@@ -8,7 +8,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
         return NextResponse.json("aaaa", { status: 500 })
     }
     const data = await self_playlists(a_token)
-    const serializedData = JSON.stringify(data);;
+    const serializedData = JSON.stringify(data)
 
     return NextResponse.json({ serializedData })
 

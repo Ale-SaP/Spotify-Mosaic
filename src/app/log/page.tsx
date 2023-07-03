@@ -10,7 +10,6 @@ export default function Log() {
     const router = useRouter();
     const fetchData = async () => {
         if (code) {
-            console.log('Received code:', code);
             try {
                 const response = await axios.post('/api/login/', { "code": code });
                 router.push("/profile")

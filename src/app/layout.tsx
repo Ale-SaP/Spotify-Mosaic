@@ -1,4 +1,5 @@
 import LeftMenu from '../components/general-use/leftMenu';
+import NavBar from '../components/general-use/navBar';
 import './globals.css';
 
 export default function RootLayout({
@@ -11,13 +12,16 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <div className="flex bg-zinc-900">
-                    <div className="w-1/4 mx-auto h-screen overflow-auto">
-                        <LeftMenu/>
-                    </div>
-                    <div className="w-3/4 mx-auto h-screen overflow-auto">
-                        <div className='justify-items-end justify-end'>
-                            {children}
+                <div className="bg-zinc-900">
+                    <NavBar />
+                    <div className="flex justify-items-center justify-center">
+                        <div className='w-1/4'>
+                            <LeftMenu />
+                        </div>
+                        <div className='w-3/4'>
+                            <div className='overflow-auto bg-black'>
+                                {children}
+                            </div>
                         </div>
                     </div>
                 </div>

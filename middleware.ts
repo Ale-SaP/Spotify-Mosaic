@@ -32,39 +32,7 @@ export async function middleware(req: NextRequest) {
   else if (!a_token && r_token) {
     // Should refresh the access_token and then continue
     console.log("User is not logged in but refresh token is present");
-    try {
-      const newAccess = await refresh_tokens(r_token.value)
-      if (newAccess[0] === 0) {
-        throw Error
-      }
-      const currentEpochTime = Math.floor(Date.now() / 1000);
-      const accessTokenExpiry = currentEpochTime + newAccess[0];
-      const refreshTokenExpiry = currentEpochTime + 86400;
-
-      const accessTokenExpires = new Date(accessTokenExpiry * 1000); // Multiply by 1000 to convert seconds to milliseconds
-      const refreshTokenExpires = new Date(refreshTokenExpiry * 1000);
-
-      cookies().set({
-        name: 'access_token',
-        value: newAccess[1],
-        httpOnly: false,
-        expires: accessTokenExpires,
-      });
-
-      cookies().set({
-        name: 'refresh_token',
-        value: newAccess[2],
-        httpOnly: false,
-        expires: refreshTokenExpires,
-      });
-      return NextResponse.next()
-    }
-    catch (e) {
-      console.log(e)
-      const url = req.nextUrl.clone()
-      url.pathname = '/home'
-      return NextResponse.rewrite(url)
-    }
+    return NextResponse.next()
   }
 
   else {

@@ -1,9 +1,7 @@
-import WelcomeText from "../components/home/welcomeText";
+import Home from "./home/page";
 
-export default function Home() {
-    return (
-    <div>
-      <WelcomeText />
-    </div>
+export default function Page() {
+  return (
+    <Home />
   );
 }
