@@ -46,7 +46,7 @@ export interface SpotifyPlaylist {
   uri: string;
 }
 
-interface SpotifyPlaylistTrack {
+export interface SpotifyPlaylistTrack {
   added_at: string;
   added_by: {
     external_urls: {
