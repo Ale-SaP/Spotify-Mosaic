@@ -25,7 +25,6 @@ export default async function authorize_code(code: string): Promise<[number, str
         return [expires_in, access_token, refresh_token];
     }
     catch (error) {
-        console.log(error);
         return [0, '', ''];
     }
 }

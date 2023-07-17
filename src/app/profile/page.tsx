@@ -14,7 +14,6 @@ export default async function Profile() {
     catch (e) {
     }
 
-    console.log(cookies().getAll())
     const res = await axios.post(`http://localhost:3000/api/my-playlists`, { "access_token": cookies().get("access_token") });
 
     const deserializedData = JSON.parse(res.data.serializedData);

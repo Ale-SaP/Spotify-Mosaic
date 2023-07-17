@@ -6,7 +6,7 @@ export default function PlaylistButton({ id, component }) {
     return (
         <button
             onClick={() => {
-                window.open(`/profile/playlist/${id}`, '_blank');
+                window.open(`/playlist/${id}`, '_blank');
             }}
         >
             {component}

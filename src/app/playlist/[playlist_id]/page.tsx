@@ -3,7 +3,6 @@
 import { cookies } from "next/headers";
 import axios from "axios";
 import Mosaic from "./mosaic";
-import Slider from "../../../../components/general-use/slider";
 
 export default async function Page({ params }: { params: { playlist_id: string } }) {
     if ((cookies().get("access_token") == null) && cookies().get("refresh_token") != null) {
@@ -26,7 +25,6 @@ export default async function Page({ params }: { params: { playlist_id: string }
     }
     return (
         <>
-        <Slider />
         <div className="grid grid-cols-7 mx-auto">
             {deserializedData.tracks.items.map(
                 track => {
